@@ -26,5 +26,5 @@ course_piazza = p.network(class_id)
 
 posts = course_piazza.iter_all_posts(sleep=1)
 posts = tuple(posts)
-with open("piazza-export-" + class_id + ".json", "wt", buffering=0) as export_file:
+with open("piazza-export-" + class_id + ".json", "wt") as export_file:
   dump(posts, export_file)
