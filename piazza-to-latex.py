@@ -8,7 +8,7 @@ def cleanhtml(raw_html: str) -> str:
   return cleantext
 
 def clean(str: str) -> str:
-  return  cleanhtml(str.replace('&#43;', '+').replace('&#96;', '`').replace('\\', '\\\\').replace('&#64;', '@').replace('&amp;', '&').replace('&#34;', "''").replace('&#39;', "'").replace('&gt;', "\\textgreater{}").replace('&lt;', "\\textless{}").replace('&', '\\&').replace('#', '\\#').replace('_', '\\_').replace('$', '\\$').replace('^', '\\^{}'))
+  return cleanhtml(str.replace('&#43;', '+').replace('&#96;', '`').replace('\\', '\\\\').replace('&#64;', '@').replace('&amp;', '&').replace('&#34;', "''").replace('&#39;', "'").replace('&gt;', "\\textgreater{}").replace('&lt;', "\\textless{}").replace('&', '\\&').replace('#', '\\#').replace('_', '\\_').replace('$', '\\$').replace('^', '\\^{}'))
 
 login = ["", ""]
 with open("login.txt", "rt") as login_file:
@@ -26,5 +26,5 @@ course_piazza = p.network(class_id)
 
 posts = course_piazza.iter_all_posts(sleep=1)
 posts = tuple(posts)
-with open("piazza-export-" + class_id + ".json", "wt") as export_file:
+with open(f"piazza-export-{class_id}.json", "wt") as export_file:
   dump(posts, export_file)
