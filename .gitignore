@@ -194,7 +194,7 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
-# custom {
+# self {
 /login.txt
 /piazza-export-*.json
 # }
